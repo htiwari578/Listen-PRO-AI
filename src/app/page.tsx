@@ -1,7 +1,9 @@
 import MaxWithWrapper from "@/components/common/MaxWithWrapper";
 import { Badge } from "@/components/ui/badge";
-import { Sparkle } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import { ChevronDown, ChevronRight, Sparkle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -17,6 +19,20 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></div>
           </span>
         </h1>
+        <p className="text-lg text-muted-foreground">
+          Transform your language learning journey with AI-powered exercises.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <Link href="/about" className={buttonVariants({variant:"default"})}>
+          Get Started
+          <ChevronRight className="w-4 h-4 ml-2" />
+           
+          
+          </Link>
+          <Link href="/about" className={buttonVariants({variant:"outline"})}>
+          Learn More
+          </Link>
+        </div>
       </div>
     </section>
     </MaxWithWrapper>
