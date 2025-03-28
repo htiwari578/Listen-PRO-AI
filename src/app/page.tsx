@@ -1,6 +1,6 @@
 import MaxWithWrapper from "@/components/common/MaxWithWrapper";
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, ChevronDown, ChevronRight, Headphones, Play, Sparkle } from "lucide-react";
 import Image from "next/image";
@@ -54,6 +54,9 @@ export default function Home() {
     <section className="container mx-auto py-20 px-6 ">
       <div className="text-center mb-16">
         <h2 className="text-3xl font-bold  mb-4 ">How it works</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Our AI-powered platform makes language learning easy and fun.
+        </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
       {
@@ -85,6 +88,22 @@ export default function Home() {
       }
       </div>
 
+    </section>
+    <section className="py-10">
+      <div className="relative rounded-2xl bg-primary p-8 md:p-12 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/70 "></div>
+        <div className="relative-z-10 max-w-2xl mx-auto text-center text-primary-foreground ">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to transform your language learning?
+          </h2>
+          <p className="text-primary-foreground/9 mb-8 ">
+          Join thousands of learners who have already transformed their language learning with our platform.
+          </p>
+          <Button className={buttonVariants({variant: "secondary"})}>
+            Get Started Now!
+          </Button>
+        </div>
+      </div>
     </section>
     </MaxWithWrapper>
   );
