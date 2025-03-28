@@ -1,7 +1,8 @@
 import MaxWithWrapper from "@/components/common/MaxWithWrapper";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { ChevronDown, ChevronRight, Sparkle } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Brain, ChevronDown, ChevronRight, Headphones, Play, Sparkle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,9 +32,59 @@ export default function Home() {
           </Link>
           <Link href="/about" className={buttonVariants({variant:"outline"})}>
           Learn More
+          <Play className="w-4 h-4 ml-2"/>
           </Link>
         </div>
       </div>
+      <div className="relative w-full lg:w-1/2">
+      <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-background/10 mix-blend-overlay "></div>
+        <iframe className="w-full h-full "
+        src="https://www.youtube.com/embed/Z9jICgFMy2M?si=3YF1WovwjxOJsb66"
+        title="Youtube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;web-share"
+        allowFullScreen
+        >
+      </iframe>
+      </div>
+      <div className="absolute -bottom-6 -right-6 -z-10 w-72 bg-primary/10 rounded-full blur-3xl "></div>
+      </div>
+
+    </section>
+    <section className="container mx-auto py-20 px-6 ">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl font-bold  mb-4 ">How it works</h2>
+      </div>
+      <div className="grid md:grid-cols-3 gap-8">
+      {
+        [
+          {
+            icon: <Headphones className="w-6 h-6 "/>,
+            title: "Active Listening",
+            description: "Practice listening to native speakers and improve your coprehension skills",
+          },
+          {
+            icon: <Brain className="w-6 h-6 " />,
+            title: "AI analysis",
+            description:"Get instant quizes to test your understanding",
+          },
+          {
+            icon: <Play className="w-6 h-6" />,
+            title: "Interactive exercises",
+            description:"Engage with AI-generated exercises to rainforce your learning.",
+          }
+        ].map((feature,i)=> (
+          <Card key ={i} className="p-6 hover:shadow-lg transition-shadow ">
+            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+            {feature.icon}
+            </div>
+            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+            <p className="text-sm text-muted-foreground">{feature.description}</p>
+          </Card>
+        ))
+      }
+      </div>
+
     </section>
     </MaxWithWrapper>
   );
