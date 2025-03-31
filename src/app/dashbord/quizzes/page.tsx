@@ -1,17 +1,17 @@
 import MaxWithWrapper from '@/components/common/MaxWithWrapper'
 import { buttonVariants } from '@/components/ui/button'
-import { Card, CardAction, CardContent } from '@/components/ui/card'
+import { Card, CardAction, CardContent, CardFooter } from '@/components/ui/card'
 import { CalendarDays, ListChecks } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
 const page = () => {
-    const quizzes = []
+    const quizzes = [];
   return (
-    <MaxWithWrapper>
+    <MaxWithWrapper className="mt-20">
         <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold">Quizzes</h1>
-            <Link href ="/dashboard" className={buttonVariants({variant: "outline"})}>
+            <Link href ="/dashbord" className={buttonVariants({variant: "outline"})}>
             Create Quiz
             </Link>
         </div>
@@ -24,7 +24,7 @@ const page = () => {
                         <p className="text-muted-foreground mb-4 ">
                             Create your first quiz to get started
                         </p>
-                        <Link href = "/dashboard" className={buttonVariants({variant: "outline"})}>
+                        <Link href = "/dashbord" className={buttonVariants({variant: "outline"})}>
                             Create Quiz
                         </Link>
 
@@ -46,9 +46,15 @@ const page = () => {
                                             </div>
                                             <div className="flex items-center text-sm text-muted-foreground">
                                                 <ListChecks className="mr-2 h-4 w-4" />
+                                                {quiz.questions.length} questions
                                             </div>
                                         </div>
                                     </CardContent>
+                                    <CardFooter>
+                                        <Link href= {`/dashbord/quizzes/${quiz.id}`} className={buttonVariants({variant:"default"})}>
+                                                Take Quiz
+                                        </Link>
+                                    </CardFooter>
                                 </Card>
                             )
                         })
