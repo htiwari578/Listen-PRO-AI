@@ -1,6 +1,7 @@
 import MaxWithWrapper from '@/components/common/MaxWithWrapper'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardAction, CardContent } from '@/components/ui/card'
+import { CalendarDays, ListChecks } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -30,7 +31,29 @@ const page = () => {
                     </CardContent>
                 </Card>
             ) : (
-
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        quizzes?.map(quiz => {
+                            return (
+                                <Card key ={quiz.id} className='hover:shadow-lg transition-shadow' >
+                                    <CardContent className="pt-4">
+                                        <div className="space-y-4">
+                                            <div className="flex items-center text-sm text-muted-foreground">
+                                                <CalendarDays className="mr-2 h-4 w-4 " />
+                                                {
+                                                    new Date(quiz.createdAt).toLocaleDateString()
+                                                }
+                                            </div>
+                                            <div className="flex items-center text-sm text-muted-foreground">
+                                                <ListChecks className="mr-2 h-4 w-4" />
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            )
+                        })
+                    }
+                </div>
             )
         }
     </MaxWithWrapper>
