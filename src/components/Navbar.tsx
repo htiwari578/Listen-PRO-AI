@@ -1,4 +1,4 @@
-import { getKindeServerSession, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/server"
+import { getKindeServerSession, LoginLink, LogoutLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server"
 import MaxWithWrapper from "./common/MaxWithWrapper";
 import Link from "next/link";
 import { Headphones } from "lucide-react";
@@ -37,9 +37,18 @@ const Navbar = async () => {
               </LogoutLink>
               </>
             ) : (
+              <div className="flex items-center gap-2">
+                <RegisterLink 
+                className={buttonVariants({
+                  variant: "secondary",
+                  size:"sm",
+                })}>
+                  Register
+                </ RegisterLink>
               <LoginLink  className={buttonVariants({ variant: "default", size: "sm" })}>
                 Login
               </LoginLink>
+              </div>
             )
           }
         </div>
