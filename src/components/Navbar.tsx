@@ -3,6 +3,7 @@ import MaxWithWrapper from "./common/MaxWithWrapper";
 import Link from "next/link";
 import { Headphones } from "lucide-react";
 import { buttonVariants } from "./ui/button";
+import MobileNav from "./MobileNav";
 
 
 const Navbar = async () => {
@@ -52,6 +53,11 @@ const Navbar = async () => {
             )
           }
         </div>
+        <MobileNav user={user ? {
+          email: user.email ?? '',
+          given_name: user.given_name ?? '',
+          family_name: user.family_name ?? ''
+        } : null} />
       </div>
       </nav>
     </MaxWithWrapper>
