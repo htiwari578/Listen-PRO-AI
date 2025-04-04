@@ -60,7 +60,7 @@ const MobileNav = ({user}: MobileNavProps) => {
               ) : (
                 <div className="flex flex-col gap-2">
                 <RegisterLink className={buttonVariants({ variant: "secondary", size:"sm" })}>
-                  Sign In
+                  Register
                 </RegisterLink>
                 <LoginLink className={buttonVariants({ variant: "default" , size:"sm" })}>
                   Sign In
